@@ -1,26 +1,35 @@
 // URL yapılarını ve içeriklerini yönetmek için bir nesne tanımlayalım
 const routes = {
-    "/anasayfa": { title: "Anasayfa", contentPath: "../templates/pages/anasayfa.html" },
+    "/home": { title: "Home", contentPath: "../templates/pages/home.html" },
 
     // alt dalları denemek için test ediliyor. şuanda html dosyası bulunmuyor.
-    "/anasayfa/yz-ile-oyna": { title: "YZ ile Oyna", contentPath: "../templates/pages/yz-ile-oyna.html" },
-    
-    "/siralama": { title: "Siralama", contentPath: "../templates/pages/siralama.html" },
-    "/istatistikler": { title: "Istatistikler", contentPath: "../templates/pages/istatistikler.html" },
-    "/arkadaslar": { title: "Arkadaslar", contentPath: "../templates/pages/arkadaslar.html" },
-    "/profil": { title: "Profil", contentPath: "../templates/pages/profil.html" },
+    "/home/play-against-ai": { title: "Play Against AI", contentPath: "../templates/pages/play-against-ai.html" },
+    "/leaderboard": { title: "Leaderboard", contentPath: "../templates/pages/leaderboard.html" },
+    "/statistics": { title: "Statistics", contentPath: "../templates/pages/statistics.html" },
+    "/friends": { title: "Friends", contentPath: "../templates/pages/friends.html" },
+    "/profile": { title: "Profile", contentPath: "../templates/pages/profile.html" },
 };
 
 
 window.onload = function () {
     function updatePageContent(html, pageTitle, urlPath) {
-        document.getElementById("content").innerHTML = html;
+        const contentElement = document.getElementById("content");
+        
+        // Önce içeriğin görünürlüğünü sıfırla
+        contentElement.classList.remove("show");
+        
+        // Yeni içeriği yükle
+        contentElement.innerHTML = html;
         document.title = pageTitle;
         window.history.pushState({ "html": html, "pageTitle": pageTitle }, pageTitle, urlPath);
+        
+        // Yüklemeden hemen sonra fade-in animasyonunu tetikle
+        setTimeout(() => {
+            contentElement.classList.add("show");
+        }, 10); // 10ms gecikme ile animasyonu başlat
     }
 
     function loadPageBasedOnPath(pathname) {
-        // pathName için doğru yönlendirmeyi kontrol ediyoruz
         if (routes[pathname]) {
             fetch(routes[pathname].contentPath)
                 .then(response => response.text())
@@ -29,27 +38,28 @@ window.onload = function () {
                 });
         } else {
             console.error("404: Page not found");
-            // Buraya 404 sayfası için bir içerik yükleyebilirsiniz
         }
     }
 
-    // Tıklama olaylarını dinamik olarak yönetiyoruz
     document.querySelectorAll("[data-url]").forEach(button => {
         button.addEventListener("click", function (event) {
-            event.preventDefault(); // Sayfanın yenilenmesini önler
+            event.preventDefault(); 
             const urlPath = this.getAttribute("data-url");
             loadPageBasedOnPath(urlPath);
         });
     });
 
-    // Sayfa yüklendiğinde mevcut path'i kontrol et
     loadPageBasedOnPath(window.location.pathname);
 
-    // Tarayıcıdaki geri/ileri butonları kullanıldığında sayfa içeriğini günceller
     window.onpopstate = function (event) {
         if (event.state) {
-            document.getElementById("content").innerHTML = event.state.html;
+            const contentElement = document.getElementById("content");
+            contentElement.classList.remove("show");
+            contentElement.innerHTML = event.state.html;
             document.title = event.state.pageTitle;
+            setTimeout(() => {
+                contentElement.classList.add("show");
+            }, 10);
         }
     };
 };
