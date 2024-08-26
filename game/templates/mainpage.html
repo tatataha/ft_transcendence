@@ -14,10 +14,12 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css" rel="stylesheet">
 <link href="{% static 'css/root.css' %}" rel="stylesheet"></link>
 <link href="{% static 'css/mainpage.css' %}" rel="stylesheet"></link>
+<link href="{% static 'css/mainpage_chat.css' %}" rel="stylesheet"></link>
 <link href="{% static 'css/leaderboard.css' %}" rel="stylesheet"></link>
 <link href="{% static 'css/friends.css' %}" rel="stylesheet"></link>
 <link href="{% static 'css/profile.css' %}" rel="stylesheet"></link>
 <link href="{% static 'css/statistics.css' %}" rel="stylesheet"></link>
+<link href="{% static 'css/matchs-history.css' %}" rel="stylesheet"></link>
 {% endblock %}
 
 
@@ -29,6 +31,7 @@
 <script src="{% static 'js/friends.js' %}"></script>
 <script src="{% static 'js/profile.js' %}"></script>
 <script src="{% static 'js/statistics.js' %}"></script>
+<script src="{% static 'js/matchs-history.js' %}"></script>
 {% endblock %}
 
 
@@ -88,7 +91,7 @@
 				      </div>
             	<div class="input-container">
             			<textarea maxlength="35" rows="1" id="message-input" placeholder="Type your message..." rows="1"></textarea >
-            			<button id="send-button" class="cool-btn" style="padding: 0; height: 40px">Send</button>
+            			<button id="send-button" class="cool-btn">Send</button>
             	</div>
           	</div>
         </div>
