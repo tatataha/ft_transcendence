@@ -1,64 +1,84 @@
-<div class="matchs-history row">
-	<!-- LEFT PANEL -->
-	<div class="left-panel-history col-3 scroll">
-	  <h3>History Of Played Game</h3>
-	  <button
-		class="history-item cool-btn"
-		style="width: 100%"
-		onclick="selectItem(this)"
-	  >
-		<div class="row">
-		  <div class="time col">2 Days ago </div>
-		  <div class="col"> Turnuva-1</div>
+<div class="match-container">
+	<!-- Left Panel -->
+	<div class="match-left-panel">
+	  <div class="history-header">
+		<button class="cool-btn back-button" data-url-path="/statistics">
+			<i class="fi fi-br-arrow-left"></i>
+		</button>
+		<h2>MATCH & TOURNAMENT HISTORIES</h2>
+	  </div>
+	  <div class="match-tournament-histories">
+		<div class="cool-btn match-btn" onclick="selectItem(this)">
+		<div class="match-title">Match - 1</div>
+		  <div class="match-time">4 Saat Önce</div>
+		  <span class="match-score">2 - 4</span>
 		</div>
-	  </button>
-	  <button
-		class="history-item cool-btn"
-		style="width: 100%"
-		onclick="selectItem(this)"
-	  >
-		Mac-1
-	  </button>
-	  <button
-		class="history-item cool-btn"
-		style="width: 100%"
-		onclick="selectItem(this)"
-	  >
-		Mac-1
-	  </button>
-	</div>
-  
-	<!-- RIGHT PANEL -->
-
-
-	<div class="right-panel-history col-9">
-
-
-		<div class="col">
-		  <h2 class="match-id text-center">Turnuva-1 Game Details</h2>
-	  
-		  <!-- TOP SECTION WITH IMAGES, USERNAMES, AND SCORE -->
-		  <div class="match-details-top d-flex justify-content-between align-items-center p-3">
-			<div class="match-card">
-			  <div class="match-card-image">
-				<img src="../../../static/img/mucakmak.jpg" alt="Image" class="img-fluid rounded-circle" width="100">
-			  </div>
-			  <div class="match-card-username text-center">mucakmak</div>
-			</div>
-			<div class="match-score display-4 text-center">3-1</div>
-			<div class="match-card">
-			  <div class="match-card-image">
-				<img src="../../../static/img/museker.jpg" alt="Image" class="img-fluid rounded-circle" width="50">
-			  </div>
-			  <div class="match-card-username text-center">museker</div>
-			</div>
-		  </div>
-	  
-		  <!-- BOTTOM SECTION, CURRENTLY EMPTY -->
-		  <div class="match-details-bottom bg-light p-3 ">
-			
-		  </div>
+		<div class="cool-btn match-btn" onclick="selectItem(this)">
+		  <div class="match-title">Tournament - 1</div>
+		  <div class="match-time">12 Saat Önce</div>
+		  <span class="match-score">2</span>
+		</div>
+		<div class="cool-btn match-btn" onclick="selectItem(this)">
+			<div class="match-title">Tournament - 1</div>
+		  <div class="match-time">2 Gün Önce</div>
+		  <span class="match-score">2 - 0</span>
+		</div>
+		<div class="cool-btn match-btn" onclick="selectItem(this)">
+			<div class="match-title">Tournament - 1</div>
+		  <div class="match-time">2 Gün Önce</div>
+		  <span class="match-score">2 - 2</span>
 		</div>
 	  </div>
-</div>
+	</div>
+  
+	<!-- Right Panel -->
+	<div class="match-right-panel row">
+	  <div class="col match-card" style="margin-right: 1vw;">
+		<div class="players-panel">
+		  <div class="match-player">
+			<img src="../../../static/img/mucakmak.jpg" alt="Player 1" class="table-img square-image">
+			<p>mucakmak</p>
+		  </div>
+		  <div class="match-score-center">
+			<h3>2 - 4</h3>
+		  </div>
+		  <div class="match-player">
+			<img src="../../../static/img/museker.jpg" alt="Player 2" class="table-img square-image">
+			<p>museker</p>
+		  </div>
+		</div>
+		<div class="graph-panel">
+		  <p>Graph</p>
+		</div>
+		<div class="info-panel">
+		  <p>Info</p>
+		</div>
+	  </div>
+  
+	  <!-- Second Match Card -->
+	  <div class="col match-card">
+		<div class="players-panel">
+		  <div class="match-player">
+			<img src="../../../static/img/mucakmak.jpg" alt="Player 1" class="table-img square-image">
+			<p>mucakmak</p>
+		  </div>
+		  <div class="match-score-center">
+			<h3>2 - 4</h3>
+		  </div>
+		  <div class="match-player">
+			<img src="../../../static/img/museker.jpg" alt="Player 2" class="table-img square-image">
+			<p>museker</p>
+		  </div>
+		</div>
+		<div class="graph-panel">
+		  <p>Graph</p>
+		</div>
+		<div class="info-panel">
+		  <p>Info</p>
+		</div>
+	  </div>
+
+	  
+	</div>
+  </div>
   
